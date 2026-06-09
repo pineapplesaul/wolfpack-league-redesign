@@ -3,409 +3,341 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Wolf Pack League · A Field Guide to the 2026 Season</title>
+<title>Wolf Pack League · The 2026 Season</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,640;1,9..144,400;1,9..144,560&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#f2e9d3;
-    --paper-2:#eadfc2;
-    --paper-3:#e2d4b2;
-    --ink:#3a2f22;
-    --ink-soft:#6b5d4a;
-    --red:#bd5240;
-    --teal:#5d8d81;
-    --mustard:#cf9c3c;
-    --pink:#d9a98f;
-    --rule:rgba(58,47,34,.25);
-    --mono:'Courier Prime',monospace;
+    --paper:#f5f2ea;
+    --paper-2:#ede9dc;
+    --ink:#16130f;
+    --ink-soft:#6e6759;
+    --hair:rgba(22,19,15,.16);
+    --plum:#553561;
+    --plum-soft:rgba(85,53,97,.09);
+    --moss:#5f6f4c;
+    --clay:#bf5b3f;
+    --gold:#c2933f;
+    --serif:'Fraunces',serif;
+    --sans:'Inter',sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Jost',sans-serif;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  /* the title-card frame */
-  body::after{
-    content:'';position:fixed;inset:10px;border:2px solid var(--ink);
-    pointer-events:none;z-index:200;
-  }
-  body::before{
-    content:'';position:fixed;inset:16px;border:1px solid rgba(58,47,34,.35);
-    pointer-events:none;z-index:200;
+    background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:16px;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
   a{color:inherit;text-decoration:none}
-  ::selection{background:var(--mustard);color:var(--ink)}
-  h1,h2,h3{font-weight:600;text-transform:uppercase}
-
-  .caps{text-transform:uppercase;letter-spacing:.22em}
-  .rule-orn{
-    display:flex;align-items:center;justify-content:center;gap:16px;
-    color:var(--ink-soft);margin:0 auto;
+  ::selection{background:var(--plum);color:var(--paper)}
+  h1,h2,h3{font-family:var(--serif);font-weight:560;letter-spacing:-.01em}
+  .eyebrow{
+    font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--plum);display:block;margin-bottom:18px;
   }
-  .rule-orn::before,.rule-orn::after{content:'';height:1px;width:90px;background:var(--rule)}
+  .num-mono{font-variant-numeric:tabular-nums}
 
   /* ---------- NAV ---------- */
   nav{
-    position:sticky;top:0;z-index:100;background:var(--paper);
-    border-bottom:2px solid var(--ink);
-    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
-    padding:20px 48px;gap:24px;
+    position:sticky;top:0;z-index:100;background:rgba(245,242,234,.92);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--hair);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 40px;gap:24px;
   }
-  .nav-side{display:flex;gap:30px;font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
-  .nav-side.right{justify-content:flex-end}
-  .nav-side a{border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .2s}
-  .nav-side a:hover,.nav-side a.active{border-color:var(--ink)}
-  .nav-side a.active{color:var(--red)}
-  .logo{font-weight:700;font-size:15px;letter-spacing:.28em;text-transform:uppercase;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px}
-  .logo small{font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:var(--ink-soft);font-weight:400}
-  @media(max-width:900px){.nav-side{display:none}nav{grid-template-columns:1fr;justify-items:center}}
+  nav .logo img{height:30px;width:auto;display:block}
+  .nav-links{display:flex;gap:30px;align-items:center;font-size:13px;font-weight:500}
+  .nav-links a{opacity:.65;transition:opacity .2s}
+  .nav-links a:hover,.nav-links a.active{opacity:1}
+  .nav-cta{
+    background:var(--ink);color:var(--paper);font-size:13px;font-weight:600;
+    padding:10px 20px;border-radius:2px;transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--plum)}
+  @media(max-width:860px){.nav-links a:not(.nav-cta){display:none}}
 
   /* ---------- SPLASH ---------- */
   .splash{
-    position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;
+    position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;
     background:url('stills/splash-tor.jpg') center/cover no-repeat;
-    border-bottom:2px solid var(--ink);padding:90px 24px;overflow:hidden;
-  }
-  .splash::before{
-    content:'';position:absolute;inset:0;z-index:1;
-    background:radial-gradient(ellipse 75% 65% at 50% 55%, rgba(12,9,5,.42), rgba(12,9,5,.08) 72%);
+    padding:90px 24px;overflow:hidden;
   }
   .splash-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-  /* ---------- FULL BLEED BANDS ---------- */
-  .bleed{position:relative;border-bottom:2px solid var(--ink)}
-  .bleed img{display:block;width:100%;height:74vh;object-fit:cover}
-  .bleed-cap{
-    position:absolute;bottom:28px;left:50%;transform:translateX(-50%);white-space:nowrap;
-    background:var(--paper);border:1.5px solid var(--ink);padding:9px 20px;
-    font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--ink);box-shadow:3px 3px 0 rgba(58,47,34,.3);
+  .splash::before{
+    content:'';position:absolute;inset:0;z-index:1;
+    background:radial-gradient(ellipse 75% 65% at 50% 55%, rgba(12,9,5,.45), rgba(12,9,5,.1) 72%);
   }
-  @media(max-width:640px){.bleed img{height:46vh}.bleed-cap{white-space:normal;text-align:center;width:max-content;max-width:80vw}}
-  .splash::after{content:'';position:absolute;inset:26px;border:1px solid rgba(242,233,211,.6);pointer-events:none}
-  .splash-card{
-    position:relative;z-index:2;text-align:center;max-width:820px;padding:0;
-  }
-  .splash-card .hero-kicker{
-    color:var(--mustard);font-size:12px;margin-bottom:20px;
-    text-shadow:0 1px 8px rgba(0,0,0,.55);
-  }
+  .splash-card{position:relative;z-index:2;text-align:center;max-width:840px}
   .splash-wolf{
-    height:150px;width:auto;display:block;margin:0 auto 22px;
+    height:140px;width:auto;display:block;margin:0 auto 26px;
     filter:drop-shadow(0 3px 14px rgba(0,0,0,.4));
   }
   .splash-title{
-    font-size:clamp(28px,4.6vw,54px);letter-spacing:.1em;line-height:1.25;margin-bottom:16px;
-    color:var(--paper);text-shadow:0 2px 18px rgba(0,0,0,.5);
+    font-size:clamp(34px,5.4vw,68px);line-height:1.12;margin-bottom:18px;
+    color:var(--paper);text-shadow:0 2px 22px rgba(0,0,0,.45);
   }
   .splash-tag{
-    font-family:var(--mono);font-style:italic;font-size:16px;
-    color:var(--mustard);text-shadow:0 1px 8px rgba(0,0,0,.55);
+    font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(17px,2vw,22px);
+    color:#e9d9a8;text-shadow:0 1px 10px rgba(0,0,0,.55);
   }
   .splash-credit{
-    position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;white-space:nowrap;
-    font-family:var(--mono);font-size:10px;letter-spacing:.25em;text-transform:uppercase;
-    color:rgba(242,233,211,.9);text-shadow:0 1px 5px rgba(0,0,0,.6);
+    position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;white-space:nowrap;
+    font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+    color:rgba(245,242,234,.85);text-shadow:0 1px 5px rgba(0,0,0,.6);
   }
-  @media(max-width:640px){.splash-wolf{height:104px}.splash-credit{white-space:normal;text-align:center;width:90vw}}
+  @media(max-width:640px){.splash-wolf{height:96px}.splash-credit{white-space:normal;text-align:center;width:90vw}}
 
-  /* ---------- HERO ---------- */
-  .hero{
-    text-align:center;padding:90px 32px 70px;position:relative;
-    border-bottom:2px solid var(--ink);
-    background:
-      radial-gradient(circle at 50% 0%, rgba(207,156,60,.12), transparent 60%),
-      var(--paper);
+  /* ---------- INTRO ---------- */
+  .intro{max-width:1180px;margin:0 auto;padding:90px 40px 80px;text-align:center}
+  .intro-sub{
+    font-family:var(--serif);font-size:clamp(20px,2.4vw,27px);font-weight:400;line-height:1.55;
+    max-width:760px;margin:0 auto 64px;color:var(--ink);
   }
-  .crest{
-    width:110px;height:110px;margin:0 auto 34px;border-radius:50%;
-    border:2px solid var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;
-    position:relative;background:var(--paper-2);
+  .intro-sub em{font-style:italic;color:var(--plum)}
+  .hero-photos{display:flex;gap:20px;align-items:stretch;margin-bottom:72px}
+  .photo{margin:0;flex:1;display:flex;flex-direction:column}
+  .photo.major{flex:1.5}
+  .photo img{display:block;width:100%;height:100%;object-fit:cover}
+  .photo figcaption{
+    font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--ink-soft);
+    padding-top:12px;text-align:left;line-height:1.5;
   }
-  .crest::after{content:'';position:absolute;inset:6px;border-radius:50%;border:1px solid rgba(58,47,34,.4)}
-  .crest svg{width:44px;height:44px}
-  .crest .est{font-family:var(--mono);font-size:8px;letter-spacing:.25em;margin-top:4px;color:var(--ink-soft)}
-  .hero-kicker{font-family:var(--mono);font-size:12px;letter-spacing:.35em;text-transform:uppercase;color:var(--red);margin-bottom:26px}
-  .hero h1{
-    font-size:clamp(34px,6.5vw,76px);font-weight:600;line-height:1.12;
-    letter-spacing:.06em;margin-bottom:30px;
-  }
-  .hero h1 .l1{display:block;font-size:.62em;letter-spacing:.18em;color:var(--ink-soft);font-weight:500;margin-bottom:8px}
-  .hero-sub{
-    max-width:560px;margin:0 auto 54px;font-size:17px;line-height:1.75;color:var(--ink-soft);
-  }
-  .hero-sub em{font-style:italic;color:var(--ink)}
+  @media(max-width:760px){.hero-photos{flex-direction:column}}
   .hero-stats{
-    display:flex;justify-content:center;max-width:880px;margin:0 auto;
-    border:2px solid var(--ink);background:var(--paper-2);
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--ink);text-align:left;
   }
-  .hero-stat{flex:1;padding:26px 18px;border-right:1px solid var(--rule);text-align:center}
+  .hero-stat{padding:26px 24px 0 0;border-right:1px solid var(--hair);padding-left:24px}
+  .hero-stat:first-child{padding-left:0}
   .hero-stat:last-child{border-right:none}
-  .hero-stat .num{font-family:var(--mono);font-weight:700;font-size:clamp(24px,3vw,36px)}
-  .hero-stat .lbl{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px}
-  @media(max-width:680px){.hero-stats{flex-wrap:wrap}.hero-stat{flex:1 1 50%;border-bottom:1px solid var(--rule)}}
+  .hero-stat .num{font-family:var(--serif);font-weight:560;font-size:clamp(30px,3.4vw,46px)}
+  .hero-stat .lbl{font-size:12px;color:var(--ink-soft);margin-top:6px}
+  @media(max-width:680px){.hero-stats{grid-template-columns:1fr 1fr;gap:24px 0}.hero-stat:nth-child(2){border-right:none}}
 
   /* ---------- DISPATCH BAR ---------- */
   .dispatch{
     background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap;
-    padding:11px 0;font-family:var(--mono);font-size:12px;letter-spacing:.12em;
-    border-bottom:2px solid var(--ink);
+    padding:11px 0;font-size:12px;font-weight:500;letter-spacing:.06em;
   }
-  .dispatch-inner{display:inline-block;animation:scroll 38s linear infinite}
-  .dispatch span{margin:0 14px}
-  .dispatch .stop{color:var(--mustard)}
+  .dispatch-inner{display:inline-block;animation:scroll 40s linear infinite}
+  .dispatch span{margin:0 18px}
+  .dispatch i{font-style:normal;color:#b89bc4;margin:0 18px}
   @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-  /* ---------- CHAPTERS ---------- */
-  section{padding:96px 32px;max-width:1140px;margin:0 auto}
-  .chapter{text-align:center;margin-bottom:58px}
-  .chapter .no{
-    font-family:var(--mono);font-size:11px;letter-spacing:.35em;text-transform:uppercase;
-    color:var(--red);display:block;margin-bottom:18px;
+  /* ---------- SECTIONS ---------- */
+  section{padding:110px 40px;max-width:1180px;margin:0 auto}
+  .sec-head{margin-bottom:56px}
+  .sec-head h2{font-size:clamp(34px,4.6vw,58px);line-height:1.06}
+  .sec-head .sub{
+    font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink-soft);
+    margin-top:16px;max-width:560px;line-height:1.6;
   }
-  .chapter h2{font-size:clamp(26px,4vw,44px);letter-spacing:.1em;margin-bottom:18px}
-  .chapter .sub{font-size:15px;color:var(--ink-soft);max-width:520px;margin:0 auto;line-height:1.7;font-style:italic}
-  .chapter .rule-orn{margin-top:26px}
-
+  .sec-head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
   .live-pill{
-    display:inline-flex;align-items:center;gap:10px;margin-top:22px;
-    font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.25em;
-    text-transform:uppercase;color:var(--red);
-    border:1px solid var(--red);border-radius:99px;padding:7px 18px;background:var(--paper);
+    display:inline-flex;align-items:center;gap:8px;flex-shrink:0;
+    font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--plum);
+    border:1px solid rgba(85,53,97,.35);border-radius:99px;padding:7px 16px;
   }
-  .live-dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 1.8s ease infinite}
+  .live-dot{width:6px;height:6px;border-radius:50%;background:var(--plum);animation:pulse 1.8s ease infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
 
   /* ---------- LEADERBOARD ---------- */
-  .board{border:2px solid var(--ink);background:var(--paper-2)}
-  .board-title{
-    text-align:center;padding:16px;border-bottom:2px solid var(--ink);
-    font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;
-    background:var(--paper-3);
-  }
+  .board{border-top:1px solid var(--ink)}
   .board-head,.board-row{
-    display:grid;
-    grid-template-columns:70px 1fr 100px 100px 90px 110px;
-    align-items:center;gap:8px;padding:16px 30px;
+    display:grid;grid-template-columns:64px 1fr 100px 100px 90px 110px;
+    align-items:center;gap:8px;padding:18px 8px;
   }
   .board-head{
-    font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--ink-soft);border-bottom:1px solid var(--rule);
+    font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-soft);border-bottom:1px solid var(--hair);padding-top:14px;padding-bottom:12px;
   }
-  .board-row{border-bottom:1px dotted var(--rule);opacity:0;transform:translateY(12px);transition:background .2s}
+  .board-row{border-bottom:1px solid var(--hair);opacity:0;transform:translateY(12px);transition:background .2s}
   .board-row.in{animation:rowIn .5s cubic-bezier(.2,.8,.2,1) forwards}
   @keyframes rowIn{to{opacity:1;transform:none}}
-  .board-row:last-child{border-bottom:none}
-  .board-row:hover{background:rgba(207,156,60,.08)}
-  .board-row.podium-1{background:rgba(207,156,60,.14)}
-  .board-row.podium-2{background:rgba(93,141,129,.10)}
-  .board-row.podium-3{background:rgba(189,82,64,.08)}
-  .rank{font-family:var(--mono);font-size:17px;font-weight:700;color:var(--ink-soft);display:flex;align-items:center;gap:8px}
-  .rank .medal{font-size:15px}
-  .podium-1 .rank{color:var(--mustard)}
-  .podium-2 .rank{color:var(--teal)}
-  .podium-3 .rank{color:var(--red)}
+  .board-row:hover{background:var(--plum-soft)}
+  .board-row.podium-1,.board-row.podium-2,.board-row.podium-3{box-shadow:inset 3px 0 0 var(--plum)}
+  .board-row.podium-1{background:var(--plum-soft)}
+  .rank{font-family:var(--serif);font-weight:560;font-size:20px;color:var(--ink-soft);padding-left:10px}
+  .podium-1 .rank,.podium-2 .rank,.podium-3 .rank{color:var(--plum)}
   .team{display:flex;align-items:center;gap:14px;min-width:0}
   .team-badge{
-    width:34px;height:34px;border-radius:50%;flex-shrink:0;border:1.5px solid var(--ink);
+    width:34px;height:34px;border-radius:50%;flex-shrink:0;
     display:flex;align-items:center;justify-content:center;
-    font-weight:700;font-size:11px;letter-spacing:.05em;color:var(--ink);
+    font-size:11px;font-weight:700;color:var(--ink);
   }
-  .team-name{font-weight:600;font-size:15px;letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .team-home{font-family:var(--mono);font-size:11px;color:var(--ink-soft)}
-  .cell{font-family:var(--mono);font-size:13px;color:var(--ink-soft);}
-  .pts{font-family:var(--mono);font-size:18px;font-weight:700;text-align:right}
-  .move{font-family:var(--mono);font-size:12px;font-weight:700}
-  .move.up{color:var(--teal)}
-  .move.down{color:var(--red)}
+  .team-name{font-weight:600;font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .team-home{font-size:12px;color:var(--ink-soft)}
+  .cell{font-size:13.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+  .pts{font-family:var(--serif);font-weight:640;font-size:22px;text-align:right;padding-right:10px;font-variant-numeric:tabular-nums}
+  .move{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+  .move.up{color:var(--moss)}
+  .move.down{color:var(--clay)}
   .move.same{color:var(--ink-soft)}
   .board-foot{
-    padding:16px 30px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);
+    padding:18px 10px;font-size:12px;color:var(--ink-soft);letter-spacing:.04em;
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
-    border-top:2px solid var(--ink);background:var(--paper-3);letter-spacing:.08em;
   }
   @media(max-width:820px){
-    .board-head,.board-row{grid-template-columns:50px 1fr 70px 90px;padding:14px 16px}
+    .board-head,.board-row{grid-template-columns:44px 1fr 70px 90px;padding:14px 4px}
     .hide-m{display:none}
   }
 
   /* ---------- ROUTE MAP ---------- */
-  .route-wrap{border:2px solid var(--ink);background:var(--paper-2)}
-  .route-tabs{display:flex;border-bottom:2px solid var(--ink);overflow-x:auto;background:var(--paper-3)}
+  .route-wrap{border:1px solid var(--hair);background:var(--paper-2);border-radius:3px;overflow:hidden}
+  .route-tabs{display:flex;border-bottom:1px solid var(--hair);overflow-x:auto}
   .route-tab{
-    flex:1;min-width:160px;padding:18px 16px;background:none;border:none;cursor:pointer;
-    color:var(--ink-soft);font-family:'Jost';font-size:12px;font-weight:600;
-    text-transform:uppercase;letter-spacing:.15em;border-right:1px solid var(--rule);
-    transition:all .2s;text-align:center;
+    flex:1;min-width:150px;padding:18px 20px;background:none;border:none;cursor:pointer;
+    color:var(--ink-soft);font-family:var(--sans);font-size:13px;font-weight:600;
+    border-right:1px solid var(--hair);transition:all .2s;text-align:left;
   }
-  .route-tab small{display:block;font-family:var(--mono);font-weight:400;font-size:10px;margin-top:5px;letter-spacing:.04em;text-transform:none;opacity:.75}
+  .route-tab small{display:block;font-weight:400;font-size:11px;margin-top:4px;opacity:.75}
   .route-tab:hover{color:var(--ink)}
-  .route-tab.active{color:var(--paper);background:var(--ink)}
-  .map-stage{position:relative;padding:20px}
+  .route-tab.active{color:var(--plum);box-shadow:inset 0 -2px 0 var(--plum);background:var(--paper)}
+  .map-stage{position:relative;padding:20px;background:var(--paper)}
   .map-stage svg{width:100%;height:auto;display:block}
   .map-hud{
     position:absolute;top:36px;left:36px;
-    font-family:var(--mono);font-size:11px;line-height:1.9;color:var(--ink-soft);
-    background:var(--paper);border:1.5px solid var(--ink);
-    padding:12px 18px;box-shadow:4px 4px 0 rgba(58,47,34,.18);
+    font-size:12px;line-height:1.9;color:var(--ink-soft);
+    background:rgba(245,242,234,.92);border:1px solid var(--hair);border-radius:3px;
+    padding:12px 18px;backdrop-filter:blur(4px);
   }
-  .map-hud b{color:var(--ink);font-size:12px;letter-spacing:.1em}
-  .map-hud .hud-cp{color:var(--red);font-weight:700}
+  .map-hud b{color:var(--ink);font-size:13px}
+  .map-hud .hud-cp{color:var(--plum);font-weight:700}
   .map-legend{
-    display:flex;gap:22px;justify-content:center;padding:16px 28px;border-top:2px solid var(--ink);
-    font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);flex-wrap:wrap;
-    align-items:center;background:var(--paper-3);letter-spacing:.05em;
+    display:flex;gap:24px;padding:16px 24px;border-top:1px solid var(--hair);
+    font-size:11.5px;color:var(--ink-soft);flex-wrap:wrap;align-items:center;
   }
   .leg{display:flex;align-items:center;gap:8px}
-  .leg i{width:9px;height:9px;border-radius:50%;display:inline-block;border:1px solid var(--ink)}
+  .leg i{width:9px;height:9px;border-radius:50%;display:inline-block}
+  .hypo-tag{margin-left:auto;font-family:var(--serif);font-style:italic}
   @media(max-width:640px){.map-hud{position:static;margin-bottom:16px;display:inline-block}}
+
+  /* ---------- FULL BLEED ---------- */
+  .bleed{position:relative}
+  .bleed img{display:block;width:100%;height:76vh;object-fit:cover}
+  .bleed-cap{
+    position:absolute;bottom:26px;left:40px;
+    font-family:var(--serif);font-style:italic;font-size:15px;color:var(--paper);
+    text-shadow:0 1px 8px rgba(0,0,0,.6);
+  }
+  @media(max-width:640px){.bleed img{height:46vh}.bleed-cap{left:20px}}
 
   /* ---------- CALENDAR ---------- */
   .ticker{
-    display:flex;align-items:center;gap:16px;margin-bottom:46px;
-    border:1.5px solid var(--ink);background:var(--paper-2);padding:14px 24px;
-    font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);
-    box-shadow:4px 4px 0 rgba(58,47,34,.15);
+    display:flex;align-items:center;gap:14px;margin-bottom:44px;
+    border:1px solid var(--hair);border-radius:3px;background:var(--paper-2);
+    padding:14px 22px;font-size:13.5px;color:var(--ink-soft);overflow:hidden;
   }
-  .ticker-no{font-weight:700;color:var(--red);letter-spacing:.1em;flex-shrink:0}
+  .ticker-no{font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--plum);flex-shrink:0;text-transform:uppercase}
   .ticker-msg{transition:opacity .4s,transform .4s}
   .ticker-msg.swap{opacity:0;transform:translateY(8px)}
-  .ticker-msg b{color:var(--ink)}
+  .ticker-msg b{color:var(--ink);font-weight:600}
 
-  .cal-strip{display:grid;grid-template-columns:repeat(12,1fr);gap:0;margin-bottom:64px;border:2px solid var(--ink)}
+  .cal-strip{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin-bottom:64px}
   .cal-month{
-    border-right:1px solid var(--rule);padding:14px 6px 12px;text-align:center;
-    font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;color:var(--ink-soft);
-    position:relative;cursor:default;transition:background .2s;text-transform:uppercase;
-    background:var(--paper-2);
+    border:1px solid var(--hair);border-radius:3px;padding:12px 6px 10px;text-align:center;
+    font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-soft);cursor:default;transition:all .2s;
   }
-  .cal-month:last-child{border-right:none}
-  .cal-month.has-event{color:var(--ink);cursor:pointer;background:var(--paper)}
-  .cal-month.has-event:hover{background:rgba(207,156,60,.18)}
-  .cal-month .dots{display:flex;gap:4px;justify-content:center;margin-top:8px;min-height:7px}
-  .cal-month .dots i{width:7px;height:7px;border-radius:50%;background:var(--red);border:1px solid var(--ink)}
-  .cal-month .dots i.soon{background:var(--paper);}
-  @media(max-width:760px){.cal-strip{grid-template-columns:repeat(6,1fr)}.cal-month:nth-child(6){border-right:none}.cal-month:nth-child(-n+6){border-bottom:1px solid var(--rule)}}
+  .cal-month.has-event{color:var(--ink);cursor:pointer;border-color:rgba(85,53,97,.45)}
+  .cal-month.has-event:hover{background:var(--plum-soft)}
+  .cal-month .dots{display:flex;gap:4px;justify-content:center;margin-top:7px;min-height:6px}
+  .cal-month .dots i{width:6px;height:6px;border-radius:50%;background:var(--plum)}
+  .cal-month .dots i.soon{background:none;border:1px solid var(--ink-soft)}
+  @media(max-width:760px){.cal-strip{grid-template-columns:repeat(6,1fr)}}
 
   .ev-month-label{
-    font-family:var(--mono);font-size:12px;letter-spacing:.4em;text-transform:uppercase;
-    color:var(--ink);padding:30px 0 14px;text-align:center;
+    font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--ink-soft);padding:34px 0 12px;border-bottom:1px solid var(--ink);
   }
-  .ev-month-label .yr{color:var(--ink-soft)}
   .ev-card{
-    display:grid;grid-template-columns:110px 1fr 280px;gap:30px;align-items:center;
-    padding:30px;border:2px solid var(--ink);margin-bottom:14px;background:var(--paper-2);
-    position:relative;transition:box-shadow .2s,transform .2s;
+    display:grid;grid-template-columns:110px 1fr 280px;gap:32px;align-items:center;
+    padding:34px 0;border-bottom:1px solid var(--hair);position:relative;transition:background .2s;
   }
-  .ev-card:hover{box-shadow:5px 5px 0 rgba(58,47,34,.2);transform:translate(-1px,-1px)}
-  .ev-date{
-    text-align:center;border:1.5px solid var(--ink);border-radius:50%;
-    width:92px;height:92px;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    background:var(--paper);margin:0 auto;
+  .ev-card:hover{background:linear-gradient(90deg,transparent,var(--plum-soft) 50%,transparent)}
+  .ev-date .dd{font-family:var(--serif);font-weight:560;font-size:48px;line-height:1}
+  .ev-date .mm{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}
+  .ev-body h3{font-size:clamp(20px,2.4vw,27px);margin-bottom:10px}
+  .ev-body h3 a{transition:color .2s}
+  .ev-body h3 a:hover{color:var(--plum)}
+  .ev-meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px}
+  .ev-desc{font-size:14.5px;line-height:1.65;color:var(--ink-soft);max-width:540px}
+  .ev-nb{
+    font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--plum);
+    margin-top:10px;
   }
-  .ev-date .dd{font-weight:700;font-size:30px;line-height:1}
-  .ev-date .mm{font-family:var(--mono);font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}
-  .ev-body h3{font-size:clamp(17px,2.2vw,23px);letter-spacing:.08em;margin-bottom:10px;font-weight:600}
-  .ev-body h3 a:hover{color:var(--red)}
-  .ev-meta{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--ink-soft);margin-bottom:10px;letter-spacing:.04em}
-  .ev-desc{font-size:14px;line-height:1.65;color:var(--ink-soft);max-width:520px}
   .ev-side{display:flex;flex-direction:column;gap:13px;align-items:flex-start}
   .stamp{
-    font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;
-    padding:6px 14px;border:2px solid currentColor;transform:rotate(-3deg);
+    font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    padding:5px 12px;border-radius:99px;
   }
-  .stamp.sold{color:var(--red)}
-  .stamp.fast{color:var(--teal);transform:rotate(2deg)}
-  .stamp.soon{color:var(--ink-soft);border-style:dashed;transform:rotate(-1.5deg)}
-  .tally{font-family:var(--mono);font-size:12px;color:var(--ink)}
-  .tally b{font-size:19px}
+  .stamp.sold{background:rgba(22,19,15,.07);color:var(--ink-soft)}
+  .stamp.fast{background:rgba(191,91,63,.12);color:var(--clay)}
+  .stamp.soon{border:1px dashed var(--hair);color:var(--ink-soft)}
+  .tally{font-size:13px;color:var(--ink);font-variant-numeric:tabular-nums}
+  .tally b{font-family:var(--serif);font-size:22px;font-weight:640}
   .tally .of{color:var(--ink-soft)}
-  .cap-bar{height:8px;background:var(--paper);border:1px solid var(--ink);width:100%;overflow:hidden}
-  .cap-fill{height:100%;background:var(--teal);width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
-  .cap-fill.hot{background:var(--mustard)}
-  .cap-fill.full{background:var(--red)}
+  .cap-bar{height:4px;background:rgba(22,19,15,.08);border-radius:99px;width:100%;overflow:hidden}
+  .cap-fill{height:100%;border-radius:99px;background:var(--moss);width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+  .cap-fill.hot{background:var(--clay)}
+  .cap-fill.full{background:rgba(22,19,15,.35)}
   .ev-cta{
-    font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.22em;
-    padding:11px 22px;border:1.5px solid var(--ink);transition:all .15s;background:var(--paper);
+    font-size:13px;font-weight:600;padding:11px 22px;border-radius:2px;transition:all .15s;
+    border:1px solid var(--ink);
   }
   .ev-cta.primary{background:var(--ink);color:var(--paper)}
-  .ev-cta:hover{box-shadow:3px 3px 0 rgba(58,47,34,.3);transform:translate(-1px,-1px)}
+  .ev-cta.primary:hover{background:var(--plum);border-color:var(--plum)}
+  .ev-cta:not(.primary):hover{background:var(--ink);color:var(--paper)}
   .league-chip{
-    position:absolute;top:-2px;right:24px;
-    font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--paper);background:var(--mustard);padding:6px 10px 8px;
-    clip-path:polygon(0 0,100% 0,100% 100%,50% 82%,0 100%);
+    position:absolute;top:34px;right:0;
+    font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);
   }
   @media(max-width:900px){
-    .ev-card{grid-template-columns:96px 1fr;gap:18px}
+    .ev-card{grid-template-columns:80px 1fr;gap:20px}
     .ev-side{grid-column:1/-1;flex-direction:row;align-items:center;flex-wrap:wrap;gap:16px}
     .cap-bar{flex:1;min-width:120px;width:auto}
+    .ev-date .dd{font-size:34px}
   }
 
-  /* ---------- RULES ---------- */
-  .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  .how-card{border:2px solid var(--ink);background:var(--paper-2);padding:38px 30px;text-align:center;position:relative}
-  .how-card .step{
-    width:46px;height:46px;border:1.5px solid var(--ink);border-radius:50%;background:var(--paper);
-    display:flex;align-items:center;justify-content:center;margin:0 auto 22px;
-    font-family:var(--mono);font-weight:700;font-size:15px;
-  }
-  .how-card h3{font-size:16px;letter-spacing:.16em;margin-bottom:16px}
-  .how-card p{font-size:14px;line-height:1.7;color:var(--ink-soft)}
-  @media(max-width:820px){.how-grid{grid-template-columns:1fr}}
-
-  /* ---------- FOOTER ---------- */
-  footer{border-top:2px solid var(--ink);padding:70px 32px 60px;text-align:center;background:var(--paper-2)}
-  .foot-crest{font-size:26px;margin-bottom:18px}
-  .foot-big{font-weight:600;font-size:clamp(20px,3.4vw,32px);text-transform:uppercase;letter-spacing:.2em;margin-bottom:10px}
-  .foot-sub{font-style:italic;color:var(--ink-soft);font-size:15px;margin-bottom:36px}
-  .foot-links{display:flex;gap:28px;justify-content:center;font-family:var(--mono);font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.18em;flex-wrap:wrap;margin-bottom:40px}
-  .foot-links a:hover{color:var(--ink)}
-  .foot-note{font-family:var(--mono);font-size:10px;color:var(--ink-soft);opacity:.75;letter-spacing:.06em;max-width:640px;margin:0 auto;line-height:1.8}
-
-  /* ---------- PHOTOGRAPHS ---------- */
-  .photo{
-    background:#fbf6e9;border:1.5px solid var(--ink);padding:10px 10px 12px;
-    box-shadow:5px 5px 0 rgba(58,47,34,.18);margin:0;
-  }
-  .photo img{display:block;width:100%;height:auto;border:1px solid rgba(58,47,34,.35);filter:saturate(.94)}
-  .photo figcaption{
-    font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);
-    text-align:center;padding-top:10px;letter-spacing:.04em;line-height:1.5;
-  }
-  .hero-photos{
-    display:flex;justify-content:center;align-items:center;gap:26px;
-    max-width:1020px;margin:0 auto 58px;
-  }
-  .hero-photos .photo{flex:1}
-  .hero-photos .photo.major{flex:1.55}
-  .hero-photos .minor-l{transform:rotate(-2deg)}
-  .hero-photos .minor-r{transform:rotate(2deg)}
-  @media(max-width:760px){.hero-photos{flex-direction:column;align-items:center}.hero-photos .photo{max-width:420px;width:100%}}
-
-  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 28px;align-items:start}
-  .gallery .photo{transition:transform .25s}
-  .gallery .photo:nth-child(3n+1){transform:rotate(-1.6deg)}
-  .gallery .photo:nth-child(3n+2){transform:rotate(1.3deg)}
-  .gallery .photo:nth-child(3n){transform:rotate(-.7deg)}
-  .gallery .photo:hover{transform:rotate(0) scale(1.02)}
+  /* ---------- GALLERY ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 24px;align-items:start}
   .gallery .photo.wide{grid-column:span 2}
+  .gallery .photo img{transition:opacity .3s}
+  .gallery .photo:hover img{opacity:.92}
   @media(max-width:820px){.gallery{grid-template-columns:1fr 1fr}}
   @media(max-width:560px){.gallery{grid-template-columns:1fr}.gallery .photo.wide{grid-column:auto}}
   .gallery-foot{
-    font-family:var(--mono);font-size:11px;color:var(--ink-soft);text-align:center;
-    margin-top:44px;font-style:italic;line-height:2;
+    font-family:var(--serif);font-style:italic;font-size:14px;color:var(--ink-soft);
+    text-align:center;margin-top:52px;line-height:1.9;
   }
 
-  .ev-nb{font-family:var(--mono);font-size:11px;font-style:italic;color:var(--ink-soft);margin-top:10px;letter-spacing:.02em}
+  /* ---------- RULES ---------- */
+  .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;border-top:1px solid var(--ink);padding-top:48px}
+  .how-card .step{
+    font-family:var(--serif);font-weight:560;font-size:52px;color:var(--plum);
+    line-height:1;margin-bottom:20px;
+  }
+  .how-card h3{font-size:21px;margin-bottom:14px}
+  .how-card p{font-size:14.5px;line-height:1.7;color:var(--ink-soft)}
+  @media(max-width:820px){.how-grid{grid-template-columns:1fr;gap:40px}}
 
-  .crest:hover{animation:wobble .6s ease}
-  @keyframes wobble{25%{transform:rotate(-3deg)}75%{transform:rotate(3deg)}}
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:var(--paper);padding:90px 40px 50px;margin-top:110px}
+  .foot-inner{max-width:1180px;margin:0 auto}
+  .foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:70px}
+  .foot-logo{height:46px;width:auto}
+  .foot-tag{
+    font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.6vw,28px);font-weight:400;
+    max-width:480px;line-height:1.5;color:rgba(245,242,234,.92);
+  }
+  .foot-links{display:flex;gap:26px;font-size:12.5px;color:rgba(245,242,234,.6);flex-wrap:wrap}
+  .foot-links a:hover{color:var(--paper)}
+  .foot-bottom{
+    border-top:1px solid rgba(245,242,234,.15);padding-top:26px;
+    display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    font-size:11.5px;color:rgba(245,242,234,.45);
+  }
+  .foot-wolf{height:64px;width:auto;opacity:.9}
 
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
   .reveal.in{opacity:1;transform:none}
@@ -414,16 +346,15 @@
 <body>
 
 <nav>
-  <div class="nav-side">
+  <a class="logo" href="#"><img src="stills/LockUp-WPBlack.webp" alt="Wolf Pack League"></a>
+  <div class="nav-links">
     <a href="#">Home</a>
     <a href="#season" class="active">2026 Events</a>
     <a href="#league">The League</a>
-  </div>
-  <a class="logo" href="#"><img src="stills/LockUp-WPBlack.webp" alt="Wolf Pack League" style="height:34px;width:auto;display:block"><small>EST. SEASON ONE · GREAT BRITAIN</small></a>
-  <div class="nav-side right">
-    <a href="#routes">The Routes</a>
-    <a href="#">Volunteer</a>
+    <a href="#routes">Routes</a>
+    <a href="#evidence">Field Notes</a>
     <a href="#">FAQ</a>
+    <a class="nav-cta" href="#season">Enter a race</a>
   </div>
 </nav>
 
@@ -433,82 +364,80 @@
   </video>
   <div class="splash-card">
     <img class="splash-wolf" src="stills/wolf-aubergine-white.png" alt="A wolf holding an aubergine, ceremonially">
-    <p class="hero-kicker">· The 2026 Season ·</p>
     <h1 class="splash-title">Two days. One map. No phones.</h1>
     <p class="splash-tag">And one ceremonial aubergine.</p>
   </div>
-  <span class="splash-credit">Glastonbury Tor · The Final Mile · From the Wolfpack Picture</span>
+  <span class="splash-credit">Glastonbury Tor · The Final Mile</span>
 </header>
 
-<section class="hero" style="padding:80px 32px 70px">
-  <p class="hero-sub">Seven two-day races across the quieter parts of Britain. Each team is issued a map, a compass, and one another. Telephones are <em>respectfully confiscated</em> at the start line and returned, eventually, at the sea.</p>
+<div class="dispatch" aria-hidden="true">
+  <div class="dispatch-inner">
+    <span>London to Hastings: fully subscribed</span><i>·</i>
+    <span>Worm's Head: fully subscribed</span><i>·</i>
+    <span>Longest Day Edition: 27 places remain</span><i>·</i>
+    <span>Autumn races announced in due course</span><i>·</i>
+    <span>Kindly bring your own tent</span><i>·</i>
+    <span>London to Hastings: fully subscribed</span><i>·</i>
+    <span>Worm's Head: fully subscribed</span><i>·</i>
+    <span>Longest Day Edition: 27 places remain</span><i>·</i>
+    <span>Autumn races announced in due course</span><i>·</i>
+    <span>Kindly bring your own tent</span><i>·</i>
+  </div>
+</div>
+
+<section class="intro" style="padding-bottom:40px">
+  <p class="intro-sub reveal in">Seven two-day races across the quieter parts of Britain. Each team is issued a map, a compass, and one another. Telephones are <em>respectfully confiscated</em> at the start line and returned, eventually, at the sea.</p>
   <div class="hero-photos reveal in">
-    <figure class="photo minor-l"><img src="stills/Wolf_2.36.1.jpg" alt="Two racers inspect a red telephone box"><figcaption>Fig. 1 · A telephone, observed but not used.</figcaption></figure>
+    <figure class="photo"><img src="stills/Wolf_2.36.1.jpg" alt="Two racers inspect a red telephone box"><figcaption>Fig. 1 · A telephone, observed but not used.</figcaption></figure>
     <figure class="photo major"><img src="stills/Wolf_2.63.1.jpg" alt="Racers cross a wheat field in single file"><figcaption>Fig. 2 · The pack proceeds in single file, by unspoken agreement.</figcaption></figure>
-    <figure class="photo minor-r"><img src="stills/Wolf_2.41.1.jpg" alt="Cows watch from a field"><figcaption>Fig. 3 · The welcoming committee.</figcaption></figure>
+    <figure class="photo"><img src="stills/Wolf_2.41.1.jpg" alt="Cows watch from a field"><figcaption>Fig. 3 · The welcoming committee.</figcaption></figure>
   </div>
   <div class="hero-stats reveal in">
     <div class="hero-stat"><div class="num" data-count="7">0</div><div class="lbl">Races scheduled</div></div>
     <div class="hero-stat"><div class="num" data-count="841">0</div><div class="lbl">Participants enrolled</div></div>
     <div class="hero-stat"><div class="num" data-count="212">0</div><div class="lbl">Teams in the league</div></div>
-    <div class="hero-stat"><div class="num"><span data-count="186">0</span><small style="font-size:.55em"> mi</small></div><div class="lbl">Combined distance</div></div>
+    <div class="hero-stat"><div class="num"><span data-count="186">0</span><small style="font-size:.5em"> mi</small></div><div class="lbl">Combined distance</div></div>
   </div>
 </section>
 
-<div class="dispatch" aria-hidden="true">
-  <div class="dispatch-inner">
-    <span>LONDON TO HASTINGS FULLY SUBSCRIBED <i class="stop">·STOP·</i></span>
-    <span>WORM'S HEAD FULLY SUBSCRIBED <i class="stop">·STOP·</i></span>
-    <span>LONGEST DAY EDITION 27 PLACES REMAIN <i class="stop">·STOP·</i></span>
-    <span>AUTUMN RACES TO BE ANNOUNCED IN DUE COURSE <i class="stop">·STOP·</i></span>
-    <span>KINDLY BRING YOUR OWN TENT <i class="stop">·STOP·</i></span>
-    <span>LONDON TO HASTINGS FULLY SUBSCRIBED <i class="stop">·STOP·</i></span>
-    <span>WORM'S HEAD FULLY SUBSCRIBED <i class="stop">·STOP·</i></span>
-    <span>LONGEST DAY EDITION 27 PLACES REMAIN <i class="stop">·STOP·</i></span>
-    <span>AUTUMN RACES TO BE ANNOUNCED IN DUE COURSE <i class="stop">·STOP·</i></span>
-    <span>KINDLY BRING YOUR OWN TENT <i class="stop">·STOP·</i></span>
-  </div>
-</div>
-
-<!-- ================= PART ONE: LEAGUE ================= -->
+<!-- ================= LEAGUE ================= -->
 <section id="league">
-  <div class="chapter reveal">
-    <span class="no">· Part One ·</span>
-    <h2>The League Table</h2>
-    <p class="sub">Wherein the season's standings are recorded with due ceremony after each race, and consulted rather more often than is healthy.</p>
-    <span class="live-pill"><span class="live-dot"></span>Updated live, with ceremony</span>
-    <div class="rule-orn">❦</div>
+  <div class="sec-head sec-head-row reveal">
+    <div>
+      <span class="eyebrow">Season Two standings</span>
+      <h2>The league table</h2>
+      <p class="sub">Consulted after each race, and rather more often than is healthy in between.</p>
+    </div>
+    <span class="live-pill"><span class="live-dot"></span>Live · after three races</span>
   </div>
 
   <div class="board reveal" id="board">
-    <div class="board-title">Official Standings · Season II · After Three Races</div>
     <div class="board-head">
-      <span>Pos.</span><span>Team</span>
+      <span style="padding-left:10px">Pos</span><span>Team</span>
       <span class="hide-m">Races</span>
       <span class="hide-m">Best</span>
       <span>Form</span>
-      <span style="text-align:right">Points</span>
+      <span style="text-align:right;padding-right:10px">Points</span>
     </div>
     <!-- rows injected by JS -->
     <div class="board-foot">
-      <span>POINTS: 1ST = 100 · 2ND = 88 · 3RD = 78 · AND SO ON</span>
-      <span>NEXT READING: 21 JUNE, AT THE TOR</span>
+      <span>Points: 1st 100 · 2nd 88 · 3rd 78, and so on. Every finisher scores.</span>
+      <span>Next reading: 21 June, at the Tor</span>
     </div>
   </div>
 </section>
 
 <div class="bleed reveal">
   <img src="stills/bleed-9.jpg" alt="A racer smiles mid-climb" loading="lazy">
-  <span class="bleed-cap">Morale, holding</span>
+  <span class="bleed-cap">Morale, holding.</span>
 </div>
 
-<!-- ================= PART TWO: ROUTES ================= -->
+<!-- ================= ROUTES ================= -->
 <section id="routes">
-  <div class="chapter reveal">
-    <span class="no">· Part Two ·</span>
-    <h2>The Routes, Approximately</h2>
+  <div class="sec-head reveal">
+    <span class="eyebrow">The courses</span>
+    <h2>The routes, approximately</h2>
     <p class="sub">A hypothetical pack makes its way along each course below. The genuine checkpoints remain sealed in an envelope until race morning, as is proper.</p>
-    <div class="rule-orn">❦</div>
   </div>
 
   <div class="route-wrap reveal">
@@ -516,7 +445,7 @@
     <div class="map-stage">
       <div class="map-hud" id="mapHud"></div>
       <svg id="mapSvg" viewBox="0 0 1000 520">
-        <g id="contours" fill="none" stroke="rgba(58,47,34,.14)" stroke-width="1">
+        <g id="contours" fill="none" stroke="rgba(22,19,15,.1)" stroke-width="1">
           <path d="M0 430 Q 180 380 340 420 T 700 390 T 1000 430"/>
           <path d="M0 370 Q 200 310 380 360 T 740 310 T 1000 360"/>
           <path d="M0 310 Q 220 240 420 300 T 780 230 T 1000 290"/>
@@ -527,47 +456,49 @@
           <ellipse cx="720" cy="400" rx="110" ry="40"/>
           <ellipse cx="720" cy="400" rx="65" ry="23"/>
         </g>
-        <g fill="rgba(58,47,34,.35)" font-family="Courier Prime" font-size="10" font-style="italic">
+        <g fill="rgba(22,19,15,.35)" font-family="Fraunces" font-size="11" font-style="italic">
           <text x="250" y="153" text-anchor="middle">somewhat hilly</text>
           <text x="720" y="403" text-anchor="middle">rather boggy</text>
         </g>
-        <path id="routeGhost" fill="none" stroke="rgba(58,47,34,.3)" stroke-width="1.6" stroke-dasharray="2 8" stroke-linecap="round"/>
-        <path id="routeDrawn" fill="none" stroke="#bd5240" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+        <path id="routeGhost" fill="none" stroke="rgba(22,19,15,.25)" stroke-width="1.6" stroke-dasharray="2 8" stroke-linecap="round"/>
+        <path id="routeDrawn" fill="none" stroke="#553561" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
         <g id="cps"></g>
         <g id="runner">
-          <circle r="9" fill="none" stroke="#bd5240" stroke-width="1.2" opacity=".5"/>
-          <circle r="5" fill="#bd5240" stroke="#f2e9d3" stroke-width="1.6"/>
+          <circle r="9" fill="none" stroke="#553561" stroke-width="1.2" opacity=".5"/>
+          <circle r="5" fill="#553561" stroke="#f5f2ea" stroke-width="1.6"/>
         </g>
-        <text id="startLbl" font-family="Courier Prime" font-size="12" font-weight="700" fill="#3a2f22"></text>
-        <text id="endLbl" font-family="Courier Prime" font-size="12" font-weight="700" fill="#3a2f22"></text>
+        <text id="startLbl" font-family="Inter" font-size="11" font-weight="700" letter-spacing="1" fill="#16130f"></text>
+        <text id="endLbl" font-family="Inter" font-size="11" font-weight="700" letter-spacing="1" fill="#16130f"></text>
       </svg>
     </div>
     <div class="map-legend">
-      <span class="leg"><i style="background:#bd5240"></i>The pack (imagined)</span>
-      <span class="leg"><i style="background:#5d8d81"></i>Checkpoint, visited</span>
-      <span class="leg"><i style="background:#f2e9d3"></i>Checkpoint, pending</span>
-      <span class="leg"><i style="background:#cf9c3c"></i>The overnight camp</span>
+      <span class="leg"><i style="background:#553561"></i>The pack (imagined)</span>
+      <span class="leg"><i style="background:#5f6f4c"></i>Checkpoint, visited</span>
+      <span class="leg"><i style="background:#f5f2ea;border:1px solid #6e6759"></i>Checkpoint, pending</span>
+      <span class="leg"><i style="background:#c2933f"></i>The overnight camp</span>
+      <span class="hypo-tag">Routes are illustrative. The real line stays secret until your blindfold comes off.</span>
     </div>
   </div>
 </section>
 
 <div class="bleed reveal">
   <img src="stills/bleed-17.jpg" alt="Two racers overlook patchwork fields" loading="lazy">
-  <span class="bleed-cap">Somewhere in Somerset, on schedule</span>
+  <span class="bleed-cap">Somewhere in Somerset, on schedule.</span>
 </div>
 
-<!-- ================= PART THREE: CALENDAR ================= -->
+<!-- ================= CALENDAR ================= -->
 <section id="season">
-  <div class="chapter reveal">
-    <span class="no">· Part Three ·</span>
-    <h2>The Calendar of Events</h2>
-    <p class="sub">Seven appointments with the countryside, arranged chronologically, with a running count of who has committed themselves so far.</p>
-    <span class="live-pill"><span class="live-dot"></span>Enrolment figures, live</span>
-    <div class="rule-orn">❦</div>
+  <div class="sec-head sec-head-row reveal">
+    <div>
+      <span class="eyebrow">The 2026 calendar</span>
+      <h2>Seven appointments with the countryside</h2>
+      <p class="sub">Arranged chronologically, with a running count of who has committed themselves so far.</p>
+    </div>
+    <span class="live-pill"><span class="live-dot"></span>Live entry tallies</span>
   </div>
 
   <div class="ticker reveal">
-    <span class="ticker-no" id="tickerNo">DISPATCH No.1</span>
+    <span class="ticker-no" id="tickerNo">Dispatch No.1</span>
     <span class="ticker-msg" id="ticker">Awaiting word from the field…</span>
   </div>
 
@@ -578,88 +509,97 @@
 
 <div class="bleed reveal">
   <img src="stills/bleed-5.jpg" alt="Two racers consult the map" loading="lazy">
-  <span class="bleed-cap">A brief committee meeting</span>
+  <span class="bleed-cap">A brief committee meeting.</span>
 </div>
 
-<!-- ================= PART FOUR: FIELD EVIDENCE ================= -->
+<!-- ================= FIELD EVIDENCE ================= -->
 <section id="evidence">
-  <div class="chapter reveal">
-    <span class="no">· Part Four ·</span>
-    <h2>Field Evidence</h2>
-    <p class="sub">Photographic exhibits recovered from previous expeditions, presented here for the court's consideration.</p>
-    <div class="rule-orn">❦</div>
+  <div class="sec-head reveal">
+    <span class="eyebrow">From the archive</span>
+    <h2>Field notes</h2>
+    <p class="sub">Photographic evidence recovered from previous expeditions, presented for the court's consideration.</p>
   </div>
   <div class="gallery reveal">
-    <figure class="photo"><img src="stills/Wolf_2.7.1.jpg" alt="A hand-drawn race map"><figcaption>Fig. 4 · The official cartography. Note: no scrambling required.</figcaption></figure>
-    <figure class="photo"><img src="stills/Wolf_2.8.1.jpg" alt="A wizard in a field"><figcaption>Fig. 5 · A wizard, encountered outside Wells. He declined to help.</figcaption></figure>
-    <figure class="photo"><img src="stills/Wolf_2.34.1.jpg" alt="A finger points at a map"><figcaption>Fig. 6 · A committee meeting.</figcaption></figure>
-    <figure class="photo"><img src="stills/Wolf_2.30.1.jpg" alt="A narrow woodland path"><figcaption>Fig. 7 · The correct path, discovered eventually.</figcaption></figure>
-    <figure class="photo"><img src="stills/Wolf_2.25.1.jpg" alt="Walking through long grass"><figcaption>Fig. 8 · The shortcut, allegedly.</figcaption></figure>
-    <figure class="photo"><img src="stills/Wolf_2.33.1.jpg" alt="A backpacker before a church tower"><figcaption>Fig. 9 · Navigation by steeple.</figcaption></figure>
-    <figure class="photo"><img src="stills/Wolf_1.15.1.jpg" alt="A horse in a paddock"><figcaption>Fig. 10 · A local resident declines to comment.</figcaption></figure>
-    <figure class="photo"><img src="stills/Wolf_2.79.1.jpg" alt="A small pig, very close"><figcaption>Fig. 11 · A checkpoint official, mid-inspection.</figcaption></figure>
-    <figure class="photo"><img src="stills/Wolf_1.30.1.jpg" alt="Camping kit on grass"><figcaption>Fig. 12 · The equipment, mostly borrowed.</figcaption></figure>
-    <figure class="photo"><img src="stills/Wolf_1.18.1.jpg" alt="A campfire at night"><figcaption>Fig. 13 · The fire, performing nightly.</figcaption></figure>
-    <figure class="photo wide"><img src="stills/Wolf_1.32.1.jpg" alt="Racers around a campfire"><figcaption>Fig. 14 · The evening's entertainment. Acoustic, as promised.</figcaption></figure>
-    <figure class="photo"><img src="stills/Wolf_1.33.1.jpg" alt="Silhouettes by firelight"><figcaption>Fig. 15 · Strangers at six o'clock, family by ten.</figcaption></figure>
-    <figure class="photo wide"><img src="stills/flag-tor.jpg" alt="A team holds the Wolf Pack flag at the Tor"><figcaption>Fig. 16 · The flag, raised at the Tor. Everyone agreed it was worth it.</figcaption></figure>
+    <figure class="photo"><img src="stills/Wolf_2.7.1.jpg" alt="A hand-drawn race map" loading="lazy"><figcaption>Fig. 4 · The official cartography. Note: no scrambling required.</figcaption></figure>
+    <figure class="photo"><img src="stills/Wolf_2.8.1.jpg" alt="A wizard in a field" loading="lazy"><figcaption>Fig. 5 · A wizard, encountered outside Wells. He declined to help.</figcaption></figure>
+    <figure class="photo"><img src="stills/Wolf_2.34.1.jpg" alt="A finger points at a map" loading="lazy"><figcaption>Fig. 6 · A committee meeting.</figcaption></figure>
+    <figure class="photo"><img src="stills/Wolf_2.30.1.jpg" alt="A narrow woodland path" loading="lazy"><figcaption>Fig. 7 · The correct path, discovered eventually.</figcaption></figure>
+    <figure class="photo"><img src="stills/Wolf_2.25.1.jpg" alt="Walking through long grass" loading="lazy"><figcaption>Fig. 8 · The shortcut, allegedly.</figcaption></figure>
+    <figure class="photo"><img src="stills/Wolf_2.33.1.jpg" alt="A backpacker before a church tower" loading="lazy"><figcaption>Fig. 9 · Navigation by steeple.</figcaption></figure>
+    <figure class="photo"><img src="stills/Wolf_1.15.1.jpg" alt="A horse in a paddock" loading="lazy"><figcaption>Fig. 10 · A local resident declines to comment.</figcaption></figure>
+    <figure class="photo"><img src="stills/Wolf_2.79.1.jpg" alt="A small pig, very close" loading="lazy"><figcaption>Fig. 11 · A checkpoint official, mid-inspection.</figcaption></figure>
+    <figure class="photo"><img src="stills/Wolf_1.30.1.jpg" alt="Camping kit on grass" loading="lazy"><figcaption>Fig. 12 · The equipment, mostly borrowed.</figcaption></figure>
+    <figure class="photo"><img src="stills/Wolf_1.18.1.jpg" alt="A campfire at night" loading="lazy"><figcaption>Fig. 13 · The fire, performing nightly.</figcaption></figure>
+    <figure class="photo wide"><img src="stills/Wolf_1.32.1.jpg" alt="Racers around a campfire" loading="lazy"><figcaption>Fig. 14 · The evening's entertainment. Acoustic, as promised.</figcaption></figure>
+    <figure class="photo"><img src="stills/Wolf_1.33.1.jpg" alt="Silhouettes by firelight" loading="lazy"><figcaption>Fig. 15 · Strangers at six o'clock, family by ten.</figcaption></figure>
+    <figure class="photo wide"><img src="stills/flag-tor.jpg" alt="A team holds the Wolf Pack flag at the Tor" loading="lazy"><figcaption>Fig. 16 · The flag, raised at the Tor. Everyone agreed it was worth it.</figcaption></figure>
   </div>
   <p class="gallery-foot reveal">All photographs were taken on actual races, by actual participants, several of whom have since made a full recovery.<br>The horse, the pig and the wizard appear courtesy of themselves.</p>
 </section>
 
 <div class="bleed reveal">
   <img src="stills/bleed-21.jpg" alt="Racers embrace at the finish" loading="lazy">
-  <span class="bleed-cap">The finish, administratively a hug</span>
+  <span class="bleed-cap">The finish, administratively a hug.</span>
 </div>
 
-<!-- ================= PART FIVE: RULES ================= -->
+<!-- ================= RULES ================= -->
 <section>
-  <div class="chapter reveal">
-    <span class="no">· Part Five ·</span>
-    <h2>Rules of the League</h2>
-    <p class="sub">Three of them, kept brief on purpose.</p>
-    <div class="rule-orn">❦</div>
+  <div class="sec-head reveal">
+    <span class="eyebrow">How the league works</span>
+    <h2>Three rules, kept brief on purpose</h2>
   </div>
   <div class="how-grid reveal">
     <div class="how-card">
-      <div class="step">I</div>
+      <div class="step">1</div>
       <h3>Attend a race</h3>
       <p>Every standard adult event counts towards the season. Family and special editions are run purely for the pleasure of it. Your team name is your league identity. Choose it carefully and then live with it.</p>
     </div>
     <div class="how-card">
-      <div class="step">II</div>
+      <div class="step">2</div>
       <h3>Collect your points</h3>
       <p>First place receives 100 points, second receives 88, third receives 78, and so on down the order. Every finishing team scores something. Teams that retire gracefully are awarded 10 points for their trouble.</p>
     </div>
     <div class="how-card">
-      <div class="step">III</div>
+      <div class="step">3</div>
       <h3>Count your best four</h3>
-      <p>Your four finest results decide your final standing. The champions, crowned in October, receive the trophy, the patches, and complimentary entry to every race of Season III. Applause is customary.</p>
+      <p>Your four finest results decide your final standing. The champions, crowned in October, receive the trophy, the patches, and complimentary entry to every race of Season Three. Applause is customary.</p>
     </div>
   </div>
 </section>
 
 <footer>
-  <img src="stills/LockUp-WPBlack.webp" alt="The Wolf Pack League" style="height:52px;width:auto;margin-bottom:20px">
-  <p class="foot-sub">A society for people who would rather be lost together than found alone.</p>
-  <div class="foot-links">
-    <a href="mailto:hello@wolfpackleague.co.uk">hello@wolfpackleague.co.uk</a>
-    <a href="#">Instagram</a>
-    <a href="#">Facebook</a>
-    <a href="#">Volunteer</a>
-    <a href="#">Jobs</a>
-    <a href="#">Terms</a>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div>
+        <img class="foot-logo" src="stills/LockUp-WPWhite.png" alt="Wolf Pack League" style="margin-bottom:26px;display:block">
+        <p class="foot-tag">A society for people who would rather be lost together than found alone.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-end">
+        <img class="foot-wolf" src="stills/wolf-aubergine-white.png" alt="">
+        <div class="foot-links" style="flex-direction:column;align-items:flex-end;gap:10px">
+          <a href="mailto:hello@wolfpackleague.co.uk">hello@wolfpackleague.co.uk</a>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">Volunteer</a>
+          <a href="#">Jobs</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Wolf Pack League. A redesign concept.</span>
+      <span>Standings, tallies and route lines are illustrative, and should be enjoyed rather than believed.</span>
+    </div>
   </div>
-  <p class="foot-note">© 2026 Wolf Pack League. A redesign concept. The standings, enrolment figures and route lines shown are illustrative, and should be enjoyed rather than believed.</p>
 </footer>
 
 <script>
 /* ================= DATA ================= */
 const TEAMS = [
-  {name:'The Reluctant Cartographers', home:'London', races:3, best:1, pts:276, move:0, col:'#cf9c3c'},
-  {name:'Compass Crisis', home:'Bristol', races:3, best:1, pts:264, move:1, col:'#5d8d81'},
-  {name:'Feral Office Workers', home:'Manchester', races:3, best:2, pts:241, move:-1, col:'#bd5240'},
-  {name:'The Blister Society', home:'Cardiff', races:2, best:1, pts:188, move:2, col:'#d9a98f'},
+  {name:'The Reluctant Cartographers', home:'London', races:3, best:1, pts:276, move:0, col:'#c2933f'},
+  {name:'Compass Crisis', home:'Bristol', races:3, best:1, pts:264, move:1, col:'#7e9b8f'},
+  {name:'Feral Office Workers', home:'Manchester', races:3, best:2, pts:241, move:-1, col:'#c98a78'},
+  {name:'The Blister Society', home:'Cardiff', races:2, best:1, pts:188, move:2, col:'#a3899c'},
   {name:'Sunday Regret', home:'Brighton', races:3, best:4, pts:182, move:0, col:'#9db86b'},
   {name:'The Wrong Way Round', home:'Leeds', races:2, best:3, pts:156, move:-2, col:'#8fa3b8'},
   {name:'Moss & Sons', home:'Sheffield', races:2, best:5, pts:134, move:1, col:'#c8a87f'},
@@ -734,16 +674,15 @@ const ROUTES = [
 /* ================= LEADERBOARD ================= */
 const board = document.getElementById('board');
 const foot = board.querySelector('.board-foot');
-const MEDALS = ['🥇','🥈','🥉'];
 TEAMS.forEach((t,i)=>{
   const row = document.createElement('div');
   row.className = 'board-row' + (i<3 ? ' podium-'+(i+1) : '');
   const initials = t.name.replace('The ','').split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
-  const mv = t.move>0 ? `<span class="move up">▲${t.move}</span>` : t.move<0 ? `<span class="move down">▼${-t.move}</span>` : `<span class="move same">·</span>`;
+  const mv = t.move>0 ? `<span class="move up">▲ ${t.move}</span>` : t.move<0 ? `<span class="move down">▼ ${-t.move}</span>` : `<span class="move same">·</span>`;
   row.innerHTML = `
-    <span class="rank">${i<3?'<span class="medal">'+MEDALS[i]+'</span>':''}${String(i+1).padStart(2,'0')}</span>
+    <span class="rank">${i+1}</span>
     <span class="team">
-      <span class="team-badge" style="background:${t.col}55;border-color:${t.col}">${initials}</span>
+      <span class="team-badge" style="background:${t.col}55;border:1.5px solid ${t.col}">${initials}</span>
       <span><span class="team-name">${t.name}</span><br><span class="team-home">of ${t.home}</span></span>
     </span>
     <span class="cell hide-m">${t.races} of 3</span>
@@ -805,13 +744,12 @@ function loadRoute(r){
     const p = drawn.getPointAtLength(cp.t*pathLen);
     const g = document.createElementNS('http://www.w3.org/2000/svg','g');
     g.setAttribute('class','cp'); g.dataset.t = cp.t; g.dataset.camp = cp.camp?'1':'';
-    const col = cp.camp ? '#cf9c3c' : '#f2e9d3';
-    // a little pennant flag
+    const col = cp.camp ? '#c2933f' : '#f5f2ea';
     g.innerHTML = `
-      <line x1="${p.x}" y1="${p.y}" x2="${p.x}" y2="${p.y-22}" stroke="#3a2f22" stroke-width="1.4"/>
-      <path class="flag" d="M ${p.x} ${p.y-22} L ${p.x+16} ${p.y-17.5} L ${p.x} ${p.y-13} Z" fill="${col}" stroke="#3a2f22" stroke-width="1.2"/>
-      <circle class="base" cx="${p.x}" cy="${p.y}" r="4" fill="${col}" stroke="#3a2f22" stroke-width="1.2"/>
-      <text x="${p.x}" y="${p.y+20}" text-anchor="middle" font-family="Courier Prime" font-size="10" fill="rgba(58,47,34,.65)">${cp.label}</text>`;
+      <line x1="${p.x}" y1="${p.y}" x2="${p.x}" y2="${p.y-22}" stroke="#16130f" stroke-width="1.3"/>
+      <path class="flag" d="M ${p.x} ${p.y-22} L ${p.x+16} ${p.y-17.5} L ${p.x} ${p.y-13} Z" fill="${col}" stroke="#16130f" stroke-width="1.1"/>
+      <circle class="base" cx="${p.x}" cy="${p.y}" r="4" fill="${col}" stroke="#16130f" stroke-width="1.1"/>
+      <text x="${p.x}" y="${p.y+20}" text-anchor="middle" font-family="Inter" font-size="9.5" font-weight="500" fill="rgba(22,19,15,.6)">${cp.label}</text>`;
     cpsG.appendChild(g);
   });
   const s = drawn.getPointAtLength(0), e = drawn.getPointAtLength(pathLen);
@@ -829,18 +767,17 @@ function animate(){
   (function frame(now){
     const dt = Math.min(now-last, 50); last = now;
     prog += SPEED * dt/16.7;
-    if(prog > 1.14) prog = -0.08; // a short rest, then once more
+    if(prog > 1.14) prog = -0.08;
     const p = Math.max(0, Math.min(prog, 1));
     const pt = drawn.getPointAtLength(p*pathLen);
     runner.setAttribute('transform', `translate(${pt.x},${pt.y})`);
-    // reveal the dashed line behind the pack
     drawn.style.strokeDasharray = `${p*pathLen} ${pathLen}`;
     let cleared = 0;
     cpsG.querySelectorAll('.cp').forEach(g=>{
       const t = +g.dataset.t, camp = g.dataset.camp==='1';
       const flag = g.querySelector('.flag'), base = g.querySelector('.base');
-      if(t <= p){ cleared++; if(!camp){ flag.setAttribute('fill','#5d8d81'); base.setAttribute('fill','#5d8d81'); } }
-      else if(!camp){ flag.setAttribute('fill','#f2e9d3'); base.setAttribute('fill','#f2e9d3'); }
+      if(t <= p){ cleared++; if(!camp){ flag.setAttribute('fill','#5f6f4c'); base.setAttribute('fill','#5f6f4c'); } }
+      else if(!camp){ flag.setAttribute('fill','#f5f2ea'); base.setAttribute('fill','#f5f2ea'); }
     });
     const totalCps = route.cps.length;
     const mi = Math.round(parseInt(route.sub.replace('~','')) * p * 10)/10 || 0;
@@ -870,7 +807,7 @@ EVENTS.forEach(ev=>{
     curMonth = ev.month;
     const lbl = document.createElement('div');
     lbl.className = 'ev-month-label'; lbl.id = 'm-'+curMonth;
-    lbl.innerHTML = `· ${MONTH_FULL[curMonth]} <span class="yr">MMXXVI</span> ·`;
+    lbl.textContent = `${MONTH_FULL[curMonth]} 2026`;
     list.appendChild(lbl);
   }
   const pct = Math.round(ev.filled/ev.cap*100);
@@ -880,11 +817,11 @@ EVENTS.forEach(ev=>{
     : ev.status==='fast' ? '<span class="stamp fast">Filling briskly</span>'
     : '<span class="stamp soon">Opening shortly</span>';
   const tally = ev.status==='soon'
-    ? `<div class="tally"><b class="wl">${ev.wait}</b> <span class="of">persons in the queue</span></div>
-       <div class="cap-bar"><div class="cap-fill" data-w="${Math.min(ev.wait/ev.cap*100,100)}%" style="background:var(--pink)"></div></div>`
+    ? `<div class="tally"><b class="wl">${ev.wait}</b> <span class="of">in the queue</span></div>
+       <div class="cap-bar"><div class="cap-fill" data-w="${Math.min(ev.wait/ev.cap*100,100)}%" style="background:rgba(22,19,15,.3)"></div></div>`
     : `<div class="tally"><b class="fillnum" data-cap="${ev.cap}">${ev.filled}</b> <span class="of">of ${ev.cap} places taken</span></div>
        <div class="cap-bar"><div class="cap-fill ${ev.status==='sold'?'full':pct>70?'hot':''}" data-w="${pct}%"></div></div>`;
-  const cta = ev.status==='fast' ? '<a class="ev-cta primary" href="#">Enter, promptly</a>'
+  const cta = ev.status==='fast' ? '<a class="ev-cta primary" href="#">Enter now</a>'
     : '<a class="ev-cta" href="#">Join the queue</a>';
   card.innerHTML = `
     <span class="league-chip">League race</span>
@@ -908,7 +845,7 @@ const TICKS = [
   'Team <b>Compass Crisis</b> has risen to <b>2nd</b> in the standings, to their own surprise.',
   'A mere <b>27 places</b> remain for the <b>Longest Day Edition</b>.',
   'Team <b>Soft Lads, Hard Miles</b> has entered the <b>Longest Day Edition</b>, against advice.',
-  '<b>841 participants</b> across <b>212 teams</b> are now enrolled in Season II.',
+  '<b>841 participants</b> across <b>212 teams</b> are now enrolled in Season Two.',
   'A <b>wizard</b> has been sighted near <b>Wells</b>. This is believed to be unrelated to the standings.',
   'The <b>pig</b> at checkpoint three has been promoted to <b>checkpoint official</b>.',
   'A <b>horse</b> near the route continues to <b>decline interviews</b>.',
@@ -921,14 +858,13 @@ function tick(){
   tickerEl.classList.add('swap');
   setTimeout(()=>{
     tickerEl.innerHTML = TICKS[ti % TICKS.length];
-    tickerNo.textContent = 'DISPATCH No.' + (ti % TICKS.length + 1);
+    tickerNo.textContent = 'Dispatch No.' + (ti % TICKS.length + 1);
     tickerEl.classList.remove('swap');
     ti++;
   }, 400);
 }
 tick(); setInterval(tick, 5200);
 
-// enrolments arrive from time to time, as enrolments do
 setInterval(()=>{
   if(Math.random() < .45){
     const fast = EVENTS.find(e=>e.status==='fast');
@@ -937,14 +873,14 @@ setInterval(()=>{
       if(cap===fast.cap && fast.filled < fast.cap - 1){
         fast.filled++;
         el.textContent = fast.filled;
-        el.style.color = 'var(--red)';
+        el.style.color = 'var(--plum)';
         setTimeout(()=>el.style.color='', 800);
         const bar = el.closest('.ev-side').querySelector('.cap-fill');
         bar.style.width = Math.round(fast.filled/fast.cap*100)+'%';
       }
     });
     document.querySelectorAll('.wl').forEach(el=>{
-      if(Math.random()<.5){ el.textContent = +el.textContent + 1; el.style.color='var(--red)'; setTimeout(()=>el.style.color='',800); }
+      if(Math.random()<.5){ el.textContent = +el.textContent + 1; el.style.color='var(--plum)'; setTimeout(()=>el.style.color='',800); }
     });
   }
 }, 7000);
